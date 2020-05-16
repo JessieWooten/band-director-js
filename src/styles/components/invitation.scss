@@ -1,0 +1,63 @@
+.invitation{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,.7);
+    z-index: 15;
+    &-modal{
+        width: 60vw;
+        background: $bg-purple;
+        border: none;
+        border-radius: 10px;
+        font-size: 3.5vh;
+        transform: translate3d(0,100vh,0);
+    }
+
+    &-icon{
+        font-size: 4vh;
+        margin-bottom: 2vh;
+    }
+    &-msg{
+        padding: 3vh;
+    }
+
+    &-btn{
+        width: 30%;
+        margin: 2vh;
+        border-radius: 10px;
+        font-weight: 300;
+        font-size: 4vh;
+        outline: none;
+        transition: .2s;
+        padding: 1vh;
+        &:active{
+            transform: translate3d(2px,2px,0);
+            background: $peach !important;
+            border:1px solid $peach !important;
+        }
+
+        &.accept{
+            background: $salmon;
+            border:none;
+        }
+        &.decline{
+            background: transparent;
+            border:1px solid $salmon;
+             color: $salmon;
+        }
+    }
+}
+
+.name-input{
+    width: 80%;
+    background: none;
+    border: 1px solid rgba($white, .3);
+    text-align: center;
+    font-size: 3vh;
+    margin-bottom: 5vh;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+}

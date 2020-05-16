@@ -1,0 +1,438 @@
+.home{overflow: hidden;}
+.command{
+    &-receiver{
+        width: 100vw;
+        height: 55vh;
+        padding: 8vh 8vh 5vh;
+        box-sizing: border-box;
+        & .thirds{
+            text-align: left;
+            height: 100%;
+            width: 33%;
+
+            & h2{
+                margin: 4vh 0 2vh;
+                font-weight: 300;
+            }
+        }
+
+        &-session{
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+            padding-left:5vh; 
+            box-sizing: border-box;
+            & .list{
+                width: 100%;
+                & .reset{
+
+                }
+                & li{
+                    width: 100%;
+                    border-bottom: 1px solid rgba($white, .1);
+                    list-style: none;
+                    // padding: 0 3vh;
+                    box-sizing: border-box;
+                    font-size: 2.5vh;
+                    & p{
+                        max-width: 75%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+                & .active-solo{
+                    // color: $salmon;
+                    font-weight: 500;
+                    transition: .2s;
+                }
+                & .active-mute{
+                    transition: .2s;
+                    font-weight: 500;
+                }
+                & .inactive-listener{
+                    transition: .2s;
+                    opacity: .3;
+                    font-weight: 300;
+                }
+                & .solo,.mute{
+                    transition: .2s;
+                    padding: 1vh 2vh;
+                    margin: 1vh 0;
+                    opacity: .3;
+                    &.active{
+                        transition: .2s;
+                        opacity: 1;
+                        color: $white;
+                        background: $salmon;
+                        border-radius: 5px;
+                    }
+                    &.inactive{
+                        transition: .2s;
+                        opacity: .1;
+                    }
+                }
+            }
+        }
+    }
+    &-sender{
+        width: 100vw;
+        height: 45vh;
+        border-top: 1px solid rgba($white, .1);
+
+        &.disabled{
+            pointer-events: none;
+            opacity: .3;
+        }
+
+        & .row:first-of-type{
+            position: relative;
+            left: 8vh;
+        }
+        & .row:last-of-type{
+            position: relative;
+            // left: -3vh;
+        }
+    }
+}
+
+.display{
+    & p{
+        font-weight: 700;
+        font-size: 15vh;
+        text-transform: uppercase;
+        color: $salmon;
+        position: relative;
+        // left: -2vh;
+    }
+    & span{
+        font-weight: 400;
+        font-size: 5vh;
+        text-transform: capitalize;
+        color: $salmon;
+        // position: absolute;
+        // top: 2vh;
+        // right: -5vh;
+    }
+   
+    &-wrapper{
+        border-radius: 10px;
+        background: rgba(white, .1);
+        height: 30vh;
+        position: relative;
+        & .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 1vw;
+            font-size: 3.5vh;
+        }
+    }
+}
+
+.recents-display{
+    width: calc(100%/8 - 4px);
+    margin: 2px;
+    border-right: 1px solid rgba($white, .7);
+    opacity: .5;
+    &:first-of-type{ border-left: 1px solid rgba($white, .7);}
+    & p{
+        font-weight: 700;
+        font-size: 7vh;
+        text-transform: uppercase;
+        color: $white;
+        position: relative;
+        // left: -2vh;
+    }
+    & span{
+        font-weight: 400;
+        font-size: 2.5vh;
+        text-transform: capitalize;
+        color: $white;
+        // position: absolute;
+        // top: 2vh;
+        // right: -5vh;
+    }
+}
+
+.pad {
+    width: 12vw;
+    height: 12vw;
+    position: relative;
+    box-sizing: border-box;
+    overflow: visible;
+    transition: .2s;
+    &.hidden{
+        opacity: 0 !important;
+        pointer-events: none;
+    }
+    &-note{
+        font-size: 6.5vh;
+        color: $white;
+        font-weight: 700;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 10;
+    }
+    & svg{
+        position: absolute;
+        width: 10vw;
+        height: 10vw;
+    }
+
+    &.active {
+        transform: scale(.95);
+        transition: .2s;
+        z-index: 11;
+    
+        & .hexagon{
+            fill: $peach;
+            stroke: $peach;
+            transition: .2s;
+        }
+    }
+    &.inactive{
+        transition: .2s;
+        opacity: .1;
+    }
+
+    &:first-of-type .mod-container .flareOutLeft{
+        transform: translate3d(5vw,0,0)
+    }
+
+}
+
+.hexagon{
+    transition: .2s;
+    transform: scale(1);
+    fill: none;
+    stroke: $white;
+    stroke-width: 6px;
+    stroke-miterlimit: 10;
+}
+
+.mod{
+    position: relative;
+    &-container{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+
+        & .active {
+            background: $orange;
+            color: $white;
+            transform: scale(1.02);
+            transform: .2s;
+        }
+    }
+    &-arm{
+        width: 5vh;
+        height: 1px;
+        background: $orange;
+        margin: 0;
+        padding:0;
+        border: none;
+        margin: 0 1.5vw;
+    }
+    &-left{
+        transform: .2s;
+        position: absolute;
+        opacity: 0;
+        color: $white;
+        font-size: 3vh;
+        padding: 1vh;
+        & .flex{
+            height: 8vh;
+            width: 8vh;
+            border-radius: 50%;
+            border: 1px solid $orange;
+        }
+    }
+    &-top-left{
+        transform: .2s;
+        position: absolute;
+        opacity: 0;
+        color: $white;
+        font-size: 3vh;
+        padding: 1vh;
+        & .flex{
+            height: 8vh;
+            width: 8vh;
+            border-radius: 50%;
+            border: 1px solid $orange;
+        }
+    }
+    &-right{
+        transform: .2s;
+        position: absolute;
+        opacity: 0;
+        color: $white;
+        font-size: 3vh;
+        padding: 1vh;
+        & .flex{
+            height: 8vh;
+            width: 8vh;
+            border-radius: 50%;
+            border: 1px solid $orange;
+        }
+    }
+    &-top-right{
+        transform: .2s;
+        position: absolute;
+        opacity: 0;
+        color: $white;
+        font-size: 3vh;
+        padding: 1vh;
+        & .flex{
+            height: 8vh;
+            width: 8vh;
+            border-radius: 50%;
+            border: 1px solid $orange;
+        }
+    }
+
+    &-top{
+        transform: .2s;
+        position: absolute;
+        opacity: 0;
+        color: $white;
+        font-size: 3vh;
+        padding: 1vh;
+        & .flex{
+            height: 8vh;
+            width: 8vh;
+            border-radius: 50%;
+            border: 1px solid $orange;
+        }
+        & .mod-arm{
+            height: 5vh;
+            width: 1px;
+            background: $orange;
+            margin: 0;
+            padding:0;
+            border: none;
+            margin: 1.5vw auto;
+        }
+    }
+    &-bottom{
+        transform: .2s;
+        position: absolute;
+        opacity: 0;
+        color: $white;
+        font-size: 5vh;
+        padding: 1vh;
+        & .flex{
+            height: 8vh;
+            width: 8vh;
+            border-radius: 50%;
+            border: none;
+            &.active{
+                font-weight: 700;
+                font-size: 6vw;
+                transition: .2s;
+                background: transparent !important;
+            }
+        }
+    }
+}
+
+.overlay{
+    background: rgba($overlay,.7);
+    opacity: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; 
+    height: 100vh;
+    width: 100vw;
+    animation: fadeIn;
+    animation-duration: 100ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    animation-delay: 200ms;
+}
+
+.listener-view{
+    height: 100vh !important;
+    transition: .2s;
+    & .thirds{
+        width: 95%;
+        margin: auto;
+        transition: .2s;
+    }
+}
+
+.start-session-btn{
+    background: $salmon;
+    border: 1px solid $salmon;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    color: $white;
+    outline: none; 
+    margin-top: 2vh;
+    & i {margin-right: 1.5vh; color: $white;}
+    &:active{
+        background: lighten($salmon, 5% );
+        color: $white;
+    }
+}
+
+.leave-session-btn{
+    background: transparent;
+    border: 1px solid $peach;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    color: $peach;
+    position: fixed;
+    bottom: 5vh;
+    right: 5vh;
+    outline: none; 
+    &:active{
+        background: $peach;
+        color: $white;
+    }
+}
+
+.toggle-flats{
+    position: absolute;
+    bottom: 3vh;
+    right: 3vh;
+    & .active{color: $orange}
+
+    & input{
+        display: none;
+        &+label{
+            position: relative;
+            width: 5vh;
+            height: 2vh;
+            background: rgba($orange, .3);
+            border-radius: 1vh;
+            &:after{
+                content: '';
+                height: calc(2vh - 2px);
+                width: calc(2vh - 2px);
+                background: $orange;
+                position: absolute;
+                left: 1px;
+                top: 1px;
+                transition: 200ms;
+                border-radius: 50%;
+            }
+        }
+
+        &:checked+label:after{
+            content: '';
+            position: absolute;
+            left: 3vh;
+            top: 1px;
+            transition: 200ms;
+        }
+    }
+    & span{
+        color: rgba($white,.3);
+        padding: 2vh;
+    }
+}

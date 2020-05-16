@@ -1,0 +1,136 @@
+.fadeIn{
+    animation: fadeIn;
+    animation-duration:  200ms; 
+    animation-fill-mode:  forwards;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+
+.flareOutRight{
+ animation: flareOutRight;
+ animation-duration:  200ms; 
+ animation-fill-mode:  forwards;
+ animation-delay: 100ms;
+}
+@keyframes flareOutRight{
+    from{
+        transform: translate3d(0,0,0);
+        opacity: 0;   
+    }
+    to{
+        transform: translate3d(11vw,0,0);
+        opacity: 1;   
+    }
+}
+.flareOutRightXL{
+    animation: flareOutRightXL;
+    animation-duration:  200ms; 
+    animation-fill-mode:  forwards;
+    animation-delay: 100ms;
+   }
+@keyframes flareOutRightXL{
+    from{
+        transform: translate3d(0,0,0);
+        opacity: 0;   
+    }
+    to{
+        transform: translate3d(10vw,-11vw,0);
+        opacity: 1;   
+    }
+}
+   
+.flareOutLeft{
+    animation: flareOutLeft;
+    animation-duration:  200ms; 
+    animation-fill-mode:  forwards;
+    animation-delay: 100ms;
+}
+@keyframes flareOutLeft{
+    from{
+        transform: translate3d(0,0,0);
+        opacity: 0;   
+    }
+    to{
+        transform: translate3d(-11vw,0,0);
+        opacity: 1;   
+    }
+}
+.flareOutLeftXL{
+   animation: flareOutLeftXL;
+   animation-duration:  200ms; 
+   animation-fill-mode:  forwards;
+   animation-delay: 100ms;
+}
+@keyframes flareOutLeftXL{
+    from{
+        transform: translate3d(0,0,0);
+        opacity: 0;   
+    }
+    to{
+        transform: translate3d(-11vw,-11vw,0);
+        opacity: 1;   
+    }
+}
+
+.flareOutTop{
+    animation: flareOutTop;
+    animation-duration:  200ms; 
+    animation-fill-mode:  forwards;
+    animation-delay: 100ms;
+}
+@keyframes flareOutTop{
+    from{
+        transform: translate3d(0,0,0);
+        opacity: 0;   
+    }
+    to{
+        transform: translate3d(0,-14vh,0);
+        opacity: 1;   
+    }
+}
+.flareOutBottom{
+    animation: flareOutBottom;
+    animation-duration:  200ms; 
+    animation-fill-mode:  forwards;
+    animation-delay: 100ms;
+}
+@keyframes flareOutBottom{
+    from{
+        transform: translate3d(0,0,0);
+        opacity: 0;   
+    }
+    to{
+        transform: translate3d(0,11vh,0);
+        opacity: 1;   
+    }
+}
+
+.modalSlideIn{
+    animation: modalSlideIn;
+    animation-duration:  200ms; 
+    animation-fill-mode:  forwards;
+    animation-delay: 100ms;
+}
+@keyframes modalSlideIn{
+    from{
+        transform: translate3d(0, 100vh, 0);
+    }
+    to{
+        transform: translate3d(0,0,0);
+    }
+}

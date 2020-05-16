@@ -1,0 +1,46 @@
+.session{
+    width: 100vw;
+    height: 100vh;
+    padding: 3vw;
+    box-sizing: border-box;
+
+    &-wrapper-r{
+        width: 40vw;
+        background: rgba($white, .1);
+        border-radius: 10px;
+        height: 50vh;
+        overflow-y: scroll;
+    }
+    &-wrapper-l{
+        width: 50vw;
+        background: rgba($white, .1);
+        border-radius: 10px;
+        height: 50vh;
+        overflow-y: scroll;
+    }
+
+    &-title{
+        padding: 4vh;
+        border-bottom: 1px solid rgba($white, .1);
+    }
+
+    &-list{
+        width: 100%;
+        & li{
+            width: 100%;
+            border-bottom: 1px solid rgba($white, .1);
+            list-style: none;
+            padding: 2vh 3vh;
+            box-sizing: border-box;
+            font-size: 3vh;
+        }
+    }
+}
+
+.close-page{
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 3vw;
+    font-size: 3vh;
+}

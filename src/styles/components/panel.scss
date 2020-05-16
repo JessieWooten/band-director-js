@@ -1,0 +1,52 @@
+.panel{
+    &-side{
+        height: 100vh;
+        width: 40vh;
+        position: fixed;
+        top: 0;
+        left: -40vh;
+        transition: .2s;
+        background: #5e5963;
+        z-index: 20;
+        &.opened{
+            left: 0;
+            transition: .2s;
+            box-shadow: 10px 0 20px rgba($black, .7);
+        }
+
+        &-title{
+            padding: 3vh 2vh;
+        }
+    }
+    &-icon{
+        opacity: .3;
+        font-size: 2vh;
+    }
+
+    &-list{
+        width: 100%;
+        box-sizing: border-box;
+        & li{
+            font-size: 3vh;
+            list-style: none;
+            width: 100%;
+            padding: 1vh 2vh;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba($white, .1);
+            &:active{
+                background: rbga(white, .3);
+            }
+        }
+    }
+
+    &-overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba($black,.7);
+        height: 100vh;
+        width: 100vw;
+        opacity: 0;
+        z-index: 12;
+    }
+}
