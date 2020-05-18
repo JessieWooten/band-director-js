@@ -9,7 +9,7 @@
       <!-- List -->
       <div v-if="scanning">
         <ul class="session-list" v-if="uninvitedListeners.length > 0">
-          <li v-for="(listener, i) in uninvitedListeners" :key="i" class="flex-spread" @click="$store.dispatch('inviteToSession', findListenerIndex(listener.ip))">
+          <li v-for="(listener, i) in uninvitedListeners" :key="i" class="flex-spread" @click="$store.dispatch('inviteToSession', listener.ip)">
             <p>
               <!-- <i class="fas fa-user" style="margin-right: 1vh;"></i> -->
               {{listener.name}}
@@ -44,7 +44,7 @@
               <i v-else class="far fa-envelope" style="margin-right: 1vh; opacity: .3"></i>
               {{listener.name}} <i v-if="!listener.accepted"> - invited</i>  
             </p>
-            <i class="fas fa-times" @click="$store.commit('removeFromSession', findListenerIndex(listener.ip))"></i>
+            <i class="fas fa-times" @click="$store.commit('removeFromSession', listener.ip)"></i>
             </li>
         </ul>
         <h3 v-else style="padding-top: 4vh; opactiy: .3; font-weight: 300;">No listeners added to your session yet.</h3>
@@ -54,37 +54,32 @@
 </template>
 
 <script>
-import Loader from "@/components/Loader.vue"
+import Loader from "@/components/Loader.vue";
 export default {
-  components:{Loader},
-  computed:{
-    uninvitedListeners(){
-      let allListeners = this.$store.state.session.foundListeners;
-      return allListeners.filter(listener => !listener.invited)
-    }
+  components: { Loader },
+  computed: {
+    uninvitedListeners() {
+      let allListeners = this.$store.getters.foundListenersList;
+      return allListeners.filter((listener) => !listener.invited);
+    },
   },
-  methods:{
-    scanForUsers(){
-      if(window.navigator.onLine){
+  methods: {
+    scanForUsers() {
+      if (window.navigator.onLine) {
         window.native.scanForUsers();
         this.scanning = true;
-      }else{
-
+      } else {
+        this.$store.dispatch(
+          "notify",
+          "Cannot scan for users. No internet detected."
+        );
       }
     },
-    findListenerIndex(ip){
-      for (var i =0; i < this.$store.state.session.foundListeners.length; i++){
-          if(this.$store.state.session.foundListeners[i].ip === ip){
-              return i;
-          }
-      }
-      return -1
-    }
   },
-  data(){
+  data() {
     return {
-      scanning: false
-    }
-  }
-}
+      scanning: false,
+    };
+  },
+};
 </script>
